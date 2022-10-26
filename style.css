@@ -1,0 +1,80 @@
+/* using grid-templates-columns */
+.box,
+.item {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  padding-block: 2rem;
+}
+.box:nth-child(2n),
+.item:nth-child(2n) {
+  background-color: rgb(18, 156, 94);
+}
+.box:nth-child(2n + 1),
+.item:nth-child(2n + 1) {
+  background-color: rgb(18, 115, 156);
+}
+.box:last-child {
+  background-color: red;
+  grid-column-start: 4;
+  grid-row: 1 / span 2;
+}
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+.wrapper {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  padding-block: 2rem;
+}
+.areas {
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: 1fr;
+}
+.item:nth-child(1) {
+  grid-area: one;
+}
+.item:nth-child(2) {
+  grid-area: two;
+}
+.item:nth-child(3) {
+  grid-area: three;
+}
+.item:nth-child(4) {
+  grid-area: four;
+}
+.item:nth-child(5) {
+  grid-area: five;
+}
+.item:nth-child(6) {
+  grid-area: six;
+}
+.item:nth-child(7) {
+  grid-area: seven;
+}
+.item:nth-child(8) {
+  grid-area: eight;
+}
+
+@media all and (min-width: 20em) {
+  .areas {
+    grid-template-areas:
+      "one two"
+      "three two"
+      "three four"
+      "five four"
+      "five six"
+      "seven six"
+      "seven eight"
+      "seven eight";
+  }
+}
+@media all and (min-width: 50em) {
+  .areas {
+    grid-template-areas:
+      "one two three four"
+      "five six seven eight";
+  }
+}
